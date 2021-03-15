@@ -20,7 +20,10 @@ public:
 
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
-
+    UPROPERTY(EditAnywhere);
+    float CrosshairXLocation = 0.5;
+    UPROPERTY(EditAnywhere);
+    float CrosshairYLocation = 0.3333;
 private:
     void AimTowardsCrosshair();
     // Return an OUT parameter, true if hit landscape
