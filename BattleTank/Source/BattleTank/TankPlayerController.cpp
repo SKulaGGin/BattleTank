@@ -15,6 +15,20 @@ void ATankPlayerController::BeginPlay()
     UE_LOG(LogTemp, Warning, TEXT("PlayerController posessing: %s"), *ControlledTank->GetName());
 }
 
+void ATankPlayerController::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    AimTowardsCrosshair();
+}
+
+void ATankPlayerController::AimTowardsCrosshair()
+{
+    if(!GetControlledTank())
+        return;
+
+    // Get world location if linetrace through crosshair
+}
+
 ATank* ATankPlayerController::GetControlledTank() const
 {
     ATank* ControlledTank = Cast<::ATank>(GetPawn());
