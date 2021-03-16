@@ -18,6 +18,13 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
+	UPROPERTY(EditAnywhere, Category = Firing)
+	// TODO find sensible default
+	float LaunchSpeed = 100000.f;
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 private:
