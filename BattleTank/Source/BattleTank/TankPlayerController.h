@@ -20,17 +20,17 @@ public:
 
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
-    UPROPERTY(EditAnywhere);
+
+    UPROPERTY(EditDefaultsOnly);
     float CrosshairXLocation = 0.5;
-    UPROPERTY(EditAnywhere);
+    UPROPERTY(EditDefaultsOnly);
     float CrosshairYLocation = 0.3333;
+    UPROPERTY(EditDefaultsOnly)
+    float LineTraceRange = 1000000; // 10km
 private:
     void AimTowardsCrosshair();
     // Return an OUT parameter, true if hit landscape
     bool GetSightRayHitLocation(FVector& OutHitLocation) const;
-
-    UPROPERTY(EditAnywhere)
-    float LineTraceRange = 1000000; // 10km
 
     bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
     bool GetLookVectorHitLocation(const FVector& LookDirection, FVector& OutHitLocation) const;
