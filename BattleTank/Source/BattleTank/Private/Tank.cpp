@@ -24,13 +24,16 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ATank::Fire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Tank firing"));
-
 	if(!Barrel)
 		return;
 
-	const FVector ProjectileSocketLocation = Barrel->GetSocketLocation("Projectile");
-	GetWorld()->SpawnActor(ProjectileBlueprint, &ProjectileSocketLocation,);
+	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(
+		ProjectileBlueprint,
+		Barrel->GetSocketLocation("Projectile"),
+		Barrel->GetSocketRotation("Projectile")
+		);
+
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
 
 void ATank::AimAt(FVector HitLocation)
