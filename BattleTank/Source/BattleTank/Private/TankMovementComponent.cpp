@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Better Games
 
 
 #include "TankMovementComponent.h"
@@ -21,8 +21,6 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
     IntendMoveForward(ForwardThrow);
     IntendTurnRight(RightThrow);
-
-    // UE_LOG(LogTemp, Warning, TEXT("%s vectoring to: %s"), *GetOwner()->GetName(), *MoveVelocity.GetSafeNormal().ToString())
 }
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
